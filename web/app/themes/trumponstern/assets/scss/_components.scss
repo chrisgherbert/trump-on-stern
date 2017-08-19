@@ -1,0 +1,293 @@
+/**
+ * Sections
+ */
+
+.section {
+	padding: $spacing 0;
+}
+
+/**
+ * Keyline Headings
+ */
+
+.keyline-heading {
+	font-family: $font-family-serif;
+	color: $brand-primary;
+	font-style: italic;
+	margin: 0 0 $spacing/1.5 0;
+	overflow: hidden;
+	&:after {
+		background-color: $brand-primary;
+		content: "";
+		display: inline-block;
+		height: 2px;
+		position: relative;
+		vertical-align: middle;
+		width: 100%;
+		left: 0.5em;
+		margin-right: -50%;
+	}
+}
+
+/**
+ * More Links
+ */
+
+.more-link {
+	font-size: 14px;
+	color: $link-color;
+	font-family: $font-family-sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+/////////////////
+// Mobile Menu //
+/////////////////
+
+.mobile-drawer {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: $mobile-drawer-zindex;
+}
+
+/* If browsers don't support pointer events, move it back */
+.no-csspointerevents .mobile-drawer {
+	visibility: hidden;
+}
+
+/* active state */
+.mobile-drawer.js-active {
+	pointer-events: auto;
+}
+.no-csspointerevents .mobile-drawer.js-active {
+	visibility: visible;
+}
+
+/* Darkened background */
+.mobile-drawer::before {
+	@include absolute-cover;
+	background: rgba(black, 0.4);
+	content: '';
+	display: block;
+	opacity: 0;
+	will-change: opacity;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+/* active state of background */
+.js-active.mobile-drawer::before {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.mobile-menu {
+	background-color: $gray-lighter;
+	color: white;
+	box-shadow: 0 2px 6px rgba(black, 0.5);
+	height: 100%;
+	width: 90%;
+	max-width: 275px;
+	overflow-y: auto;
+	pointer-events: auto;
+	padding: $line-height-computed*2 $line-height-computed;
+	position: absolute;
+	right: 100%;
+	transform: translateX(0);
+	will-change: transform;
+	z-index: $mobile-menu-zindex;
+}
+
+/* active state */
+.mobile-drawer.js-active .mobile-menu {
+	transform: translateX(100%);
+	transition: all 0.35s ease-out;
+}
+
+/* animating out state */
+.mobile-drawer .mobile-menu {
+	transition: all 0.15s ease-in;
+}
+
+/* Mobile Menu Link styles */
+.mobile-menu__link {
+	display: block;
+	font-size: $font-size-large;
+}
+
+/* Close Button for mobile menu */
+.mobile-menu__close {
+	@include remove-button-styles;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: $font-size-h3;
+	padding: 0.5em;
+	opacity: 0.6;
+	transition: $transition;
+	&:hover, &:focus {
+		opacity: 1;
+	}
+}
+
+/* Mobile Menu Trigger */
+.mobile-trigger {
+	@include remove-button-styles;
+	float: right;
+}
+
+
+/////////////////
+// Main Header //
+/////////////////
+
+.main-header {
+	padding: $spacing/4 0;
+	background-color: $gray;
+	color: white;
+	text-align: center;
+	padding: $spacing;
+	background-image: url('../assets/img/header-bg.jpg');
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-size: cover;
+}
+
+.main-header__logo {
+	margin: 0;
+	transition: all 200ms ease;
+	&:hover {
+		transform: scale(1.1) rotate(2deg);
+	}
+}
+
+///////////////
+// Main Menu //
+///////////////
+
+.main-menu {
+	text-align: right;
+}
+
+.main-menu__list {
+	@include strip-ul;
+}
+
+.main-menu__item {
+	display: inline-block;
+	margin-right: $spacing/2;
+	&:last-child { margin-right: 0; }
+}
+
+.main-menu__link {
+	display: block;
+}
+
+///////////
+// Tease //
+///////////
+
+.tease__image {
+	margin-bottom: $spacing/3;
+}
+
+.tease__overline {
+	display: block;
+	font-family: $font-family-sans-serif;
+	margin-bottom: $spacing/4;
+}
+
+.tease__title {
+	margin: 0 0 $spacing/6;
+	a {
+		@include reverse-links;
+	}
+}
+
+.tease__underline {
+	font-style: italic;
+	margin-bottom: $spacing/6;
+}
+
+/**
+ * Home Page
+ */
+
+.home-intro {
+	background-color: $site-blue-2;
+}
+
+/**
+ * Episode Tease
+ */
+
+.episode-teases {
+	margin-bottom: $spacing;
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.episode-tease {
+	background-color: $site-yellow-light;
+	padding: $spacing/2;
+	display: flex;
+	box-shadow: 4px 4px 0px darken($site-blue-2, 5%);
+	border-radius: 4px;
+	margin-bottom: $spacing/3;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	color: inherit;
+	&:hover, &:focus, &:active {
+		color: inherit;
+		text-decoration: inherit;
+		transform: translate(-10px, 0);
+		background-color: lighten($site-yellow-light, 3%);
+	}
+}
+
+.episode-tease__date {
+	width: 115px;
+	height: 115px;
+	border-radius: 50%;
+	background-color: rgba($site-yellow, 0.7);
+	flex-shrink: 0;
+	margin-left: -$spacing*1.5;
+	margin-right: $spacing/2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.episode-tease__date-inner {
+	position: relative;
+	top: -5px;
+}
+
+.episode-tease__date-day, .episode-tease__date-month-year {
+	text-align: center;
+}
+
+.episode-tease__date-day {
+	font-size: 48px;
+	line-height: 48px;
+	font-style: italic;
+	font-weight: 900;
+}
+
+.episode-tease__date-month-year {
+	font-size: 12px;
+	line-height: 12px;
+	letter-spacing: 1px;
+	font-family: $font-family-sans-serif;
+	text-transform: uppercase;
+	margin-top: 10px;
+	font-weight: 700;
+}

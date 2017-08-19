@@ -1,0 +1,89 @@
+{% extends "page.twig" %}
+
+{% block content %}
+
+	{% block home_intro %}
+
+		{% if post.content %}
+
+			<div class="section home-intro">
+
+				<div class="container-fluid">
+
+					<div class="the-content text-center">
+
+						{{ post.content }}
+
+					</div><!-- /.the-content -->
+
+				</div><!-- /.container-fluid -->
+
+			</div><!-- /.section home-intro -->
+
+		{% endif %}
+
+	{% endblock %}
+
+	{% block home_episodes %}
+
+		<div class="section home-episodes">
+
+			<div class="container-fluid">
+
+				{% for year, episodes in episodes_grouped_by_year %}
+
+					<h3 class="keyline-heading">
+
+						{{ year }}
+
+					</h3><!-- /.keyline-heading -->
+
+					<div class="episode-teases">
+
+						{% for episode in episodes %}
+
+							<a href="{{ episode.link }}" class="episode-tease">
+
+								<div class="episode-tease__date">
+
+									<div class="episode-tease__date-inner">
+
+										<div class="episode-tease__date-day">
+											{{ episode.date('d') }}
+										</div><!-- /.episode-tease__date-day -->
+
+										<div class="episode-tease__date-month-year">
+											{{ episode.date('M. Y') }}
+										</div><!-- /.episode-tease__date-month-year -->
+
+									</div><!-- /.episode-tease__date-inner -->
+
+								</div><!-- /.episode-tease__date -->
+
+								<div class="episode-tease__description the-content">
+
+									<p>
+										{{ episode.get_preview(50, '', '') }}
+									</p>
+
+									<div class="more-link">
+										+ See Details
+									</div>
+
+								</div><!-- /.episode-tease__description -->
+
+							</a><!-- /.episode-tease -->
+
+						{% endfor %}
+
+					</div><!-- /.episode-teases -->
+
+				{% endfor %}
+
+			</div><!-- /.container-fluid -->
+
+		</div><!-- /.section home-episodes -->
+
+	{% endblock %}
+
+{% endblock %}
