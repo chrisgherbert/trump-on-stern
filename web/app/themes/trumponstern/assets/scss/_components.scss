@@ -29,9 +29,9 @@
 	letter-spacing: 1px;
 }
 
-/////////////////
-// Mobile Menu //
-/////////////////
+/**
+ * Mobile Menu
+ */
 
 .mobile-drawer {
 	position: fixed;
@@ -131,9 +131,9 @@
 }
 
 
-/////////////////
-// Main Header //
-/////////////////
+/**
+ * Main Header
+ */
 
 .main-header {
 	padding: $spacing/4 0;
@@ -155,9 +155,9 @@
 	}
 }
 
-///////////////
-// Main Menu //
-///////////////
+/**
+ * Main Menu
+ */
 
 .main-menu {
 	text-align: right;
@@ -259,11 +259,11 @@
 	font-family: $font-family-sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 }
 
 .episode-tease__meta-item {
-	margin-bottom: 0.5em;
+	margin-bottom: 1em;
 }
 
 .episode-tease__meta-key {
