@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7ab5e84e9dd792b1b310910bdfb166d2",
+    "content-hash": "5b5ccf0c1e8a7faa5b84b36f3f41864c",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -331,6 +331,39 @@
                 "zikula"
             ],
             "time": "2016-08-13T20:53:52+00:00"
+        },
+        {
+            "name": "debach/zend-mp3",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/debach/zend-mp3.git",
+                "reference": "17b523ad57f283ddf3a116bc0eff22cb9d1b4b27"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/debach/zend-mp3/zipball/17b523ad57f283ddf3a116bc0eff22cb9d1b4b27",
+                "reference": "17b523ad57f283ddf3a116bc0eff22cb9d1b4b27",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Zend_": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sven Vollbehr"
+                }
+            ],
+            "description": "The best PHP library for Object-Oriented media file information reading and writing.",
+            "homepage": "https://code.google.com/p/php-reader/",
+            "time": "2016-01-04T13:23:44+00:00"
         },
         {
             "name": "madcoda/php-youtube-api",
@@ -836,7 +869,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/posts-to-posts.1.6.5.zip",
-                "reference": null,
+                "reference": "tags/1.6.5",
                 "shasum": null
             },
             "require": {

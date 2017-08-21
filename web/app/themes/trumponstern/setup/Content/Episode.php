@@ -6,6 +6,24 @@ class Episode extends \bermanco\ExtendedTimberClasses\Post {
 
 	public $post_type = 'episode';
 
+	public function get_duration(){
+
+		if (!$attachment_id = $this->meta('mp3_id')){
+			return false;
+		}
+
+		$path = get_attached_file($attachment_id);
+
+		if (!$path){
+			return false;
+		}
+
+		$mp3 = new \Zend_Media_Mpeg_Abs($path);
+
+		return gmdate('i:s', $mp3->getLengthEstimate());
+
+	}
+
 	////////////
 	// Static //
 	////////////
