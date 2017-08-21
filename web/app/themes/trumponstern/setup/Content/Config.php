@@ -10,8 +10,8 @@ class Config {
 
 	public static function post_type_classes(){
 		return array(
-			'post'      => '\Content\Post',
-			'article'   => '\Content\Article',
+			'post' => '\Content\Post',
+			'episode' => 'Content\Episode'
 		);
 	}
 

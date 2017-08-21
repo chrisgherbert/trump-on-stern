@@ -1,0 +1,41 @@
+{% extends 'single.twig' %}
+
+{% block content %}
+
+	<div class="section">
+
+		<div class="container-fluid">
+
+			<h1>{{ post.date }}</h1>
+
+			<audio class="episode-player" id="episode-player" controls style="width: 100%">
+				<source src="{{ post.mp3 }}" type="audio/mpeg">
+			</audio>
+
+			<div class="the-content">
+				{{ post.content }}
+			</div><!-- /.the-content -->
+
+			{% if post.get_bookmarks %}
+
+				<h4>Bookmarks</h4>
+
+				<div class="episode-bookmarks">
+
+					{% for bookmark in post.get_bookmarks %}
+
+						<a href="#" class="episode-bookmarks__item js-episode-bookmark" data-position="{{ bookmark.seconds }}">
+							{{ bookmark.description }}
+						</a>
+
+					{% endfor %}
+
+				</div>
+
+			{% endif %}
+
+		</div><!-- /.container-fluid -->
+
+	</div><!-- /.section -->
+
+{% endblock %}

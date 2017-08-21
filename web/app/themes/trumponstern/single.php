@@ -10,7 +10,7 @@
  */
 
 $context = Timber::get_context();
-$post = Timber::get_post($post->ID, 'bermanco\ExtendedTimberClasses\Post');
+$post = Timber::get_post($post->ID, Content\Config::post_type_classes());
 $context['post'] = $post;
 
 // Open Graph

@@ -2,6 +2,7 @@ module.exports = {
 
   jsFiles: [
     'assets/bower_components/jquery-smooth-scroll/jquery.smooth-scroll.js',
+    'assets/bower_components/howler.js/dist/howler.min.js',
     'assets/js/modernizr.js',
     'assets/js/main.js',
     'assets/js/**/*.js'

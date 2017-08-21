@@ -24,6 +24,35 @@ class Episode extends \bermanco\ExtendedTimberClasses\Post {
 
 	}
 
+	public function get_bookmarks(){
+
+		$bookmarks = $this->meta('bookmarks');
+
+		if ($bookmarks){
+
+			return array_map(function($item){
+
+				$item['seconds'] = $this->convert_timestamp_to_seconds($item['time']);
+
+				return $item;
+
+			}, $bookmarks);
+
+		}
+
+	}
+
+	protected function convert_timestamp_to_seconds($timestamp){
+
+		$parts = explode(':', $timestamp);
+
+		$minutes = $parts[0];
+		$seconds = $parts[1];
+
+		return ($minutes * 60) + $seconds;
+
+	}
+
 	////////////
 	// Static //
 	////////////

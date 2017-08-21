@@ -11,8 +11,34 @@
 	var website = {
 
 		init: function() {
+			this.audioPlayer();
 			this.mobileMenu();
 			this.ui();
+		},
+
+		audioPlayer: function() {
+
+			var player = document.getElementById('episode-player');
+
+			var $bookmarks = $('.js-episode-bookmark');
+
+			if ($bookmarks.length < 1){
+				return;
+			}
+
+			$bookmarks.click(function(e){
+
+				e.preventDefault();
+
+				console.log('hi');
+
+				var position = $(this).data('position');
+
+				player.play();
+				player.currentTime = position;
+
+			});
+
 		},
 
 		mobileMenu: function() {
