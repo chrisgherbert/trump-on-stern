@@ -22,7 +22,7 @@
  */
 
 .more-link {
-	font-size: 13px;
+	font-size: 12px;
 	color: $link-color;
 	font-family: $font-family-sans-serif;
 	text-transform: uppercase;
@@ -255,14 +255,15 @@
 
 .episode-tease__meta {
 	text-align: left;
-	font-size:  13px;
+	font-size:  12px;
 	font-family: $font-family-sans-serif;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	margin-bottom: 1.5em;
 }
 
 .episode-tease__meta-item {
-	display: inline-block;
+	margin-bottom: 0.5em;
 }
 
 .episode-tease__meta-key {
@@ -270,5 +271,5 @@
 }
 
 .episode-tease__meta-value {
-	color: $gray-light;
+	color: lighten($gray-light, 10%);
 }
