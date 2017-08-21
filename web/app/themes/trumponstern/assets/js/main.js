@@ -30,8 +30,6 @@
 
 				e.preventDefault();
 
-				console.log('hi');
-
 				var position = $(this).data('position');
 
 				player.play();
