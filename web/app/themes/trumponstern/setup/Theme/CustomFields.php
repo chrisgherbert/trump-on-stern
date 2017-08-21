@@ -17,7 +17,9 @@ class CustomFields {
 	 * @var array
 	 */
 	protected $boxes = array(
-		'episode'
+		'episode',
+		'episode_bookmarks',
+		'episode_external_links'
 	);
 
 	/**
@@ -63,9 +65,66 @@ class CustomFields {
 
 	}
 
+	public function episode_bookmarks(){
+
+		$cmb2 = new_cmb2_box(array(
+			'id' => 'episode_bookmarks',
+			'title' => 'Bookmarks',
+			'object_types' => array('episode')
+		));
+
+		$group_id = $cmb2->add_field(array(
+			'id' => 'bookmarks',
+			'name' => 'Bookmarks',
+			'type' => 'group',
+			'options' => array(
+				'sortable' => true
+			)
+		));
+
+		$cmb2->add_group_field($group_id, array(
+			'id' => 'time',
+			'name' => 'Time',
+			'type' => 'text',
+			'desc' => 'Formatted like "03:22"'
+		));
+
+		$cmb2->add_group_field($group_id, array(
+			'id' => 'description',
+			'name' => 'Description',
+			'type' => 'textarea_small'
+		));
+
+	}
+
 	public function episode_external_links(){
 
+		$cmb2  = new_cmb2_box(array(
+			'id' => 'episode_external_links',
+			'title' => 'External Links',
+			'object_types' => array('episode')
+		));
 
+		$group_id = $cmb2->add_field(array(
+			'id' => 'external_links',
+			'name' => 'Links',
+			'type' => 'group',
+			'options' => array(
+				'sortable' => true
+			)
+		));
+
+		$cmb2->add_group_field($group_id, array(
+			'id' => 'label',
+			'name' => 'Label',
+			'type' => 'textarea_small'
+		));
+
+		$cmb2->add_group_field($group_id, array(
+			'id' => 'url',
+			'name' => 'URL',
+			'type' => 'text_url'
+		));
 
 	}
 
