@@ -6,11 +6,15 @@
 
 		{% if post.content %}
 
-			<div class="section home-intro">
+			<div class="section">
 
 				<div class="container-fluid">
 
-					<div class="the-content text-center">
+					<h4 class="keyline-heading">
+						Introduction
+					</h4>
+
+					<div class="the-content ">
 
 						{{ post.content }}
 
@@ -32,11 +36,11 @@
 
 				{% for year, episodes in episodes_grouped_by_year %}
 
-					<h3 class="keyline-heading">
+					<h4 class="keyline-heading">
 
 						{{ year }}
 
-					</h3><!-- /.keyline-heading -->
+					</h4><!-- /.keyline-heading -->
 
 					<div class="episode-teases">
 

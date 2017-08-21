@@ -12,21 +12,9 @@
 
 .keyline-heading {
 	font-family: $font-family-serif;
-	color: $brand-primary;
-	font-style: italic;
-	margin: 0 0 $spacing/1.5 0;
-	overflow: hidden;
-	&:after {
-		background-color: $brand-primary;
-		content: "";
-		display: inline-block;
-		height: 2px;
-		position: relative;
-		vertical-align: middle;
-		width: 100%;
-		left: 0.5em;
-		margin-right: -50%;
-	}
+	border-bottom: 1px solid $divider-color;
+	padding-bottom: $spacing/6;
+	margin-bottom: $spacing/2;
 }
 
 /**
@@ -34,7 +22,7 @@
  */
 
 .more-link {
-	font-size: 14px;
+	font-size: 13px;
 	color: $link-color;
 	font-family: $font-family-sans-serif;
 	text-transform: uppercase;
@@ -189,32 +177,6 @@
 	display: block;
 }
 
-///////////
-// Tease //
-///////////
-
-.tease__image {
-	margin-bottom: $spacing/3;
-}
-
-.tease__overline {
-	display: block;
-	font-family: $font-family-sans-serif;
-	margin-bottom: $spacing/4;
-}
-
-.tease__title {
-	margin: 0 0 $spacing/6;
-	a {
-		@include reverse-links;
-	}
-}
-
-.tease__underline {
-	font-style: italic;
-	margin-bottom: $spacing/6;
-}
-
 /**
  * Home Page
  */
@@ -235,14 +197,13 @@
 }
 
 .episode-tease {
-	background-color: $site-yellow-light;
+	background-color: white;
 	padding: $spacing/2;
 	display: flex;
-	box-shadow: 4px 4px 0px darken($site-blue-2, 5%);
+	box-shadow: 2px 2px 2px rgba(black, 0.1);
 	border-radius: 4px;
-	margin-bottom: $spacing/3;
-	&:last-child {
-		margin-bottom: 0;
+	&:not(:last-child) {
+		margin-bottom: $spacing/3;
 	}
 	color: inherit;
 	&:hover, &:focus, &:active {
@@ -290,4 +251,24 @@
 	text-transform: uppercase;
 	margin-top: 10px;
 	font-weight: 700;
+}
+
+.episode-tease__meta {
+	text-align: left;
+	font-size:  13px;
+	font-family: $font-family-sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.episode-tease__meta-item {
+	display: inline-block;
+}
+
+.episode-tease__meta-key {
+	color: $text-color;
+}
+
+.episode-tease__meta-value {
+	color: $gray-light;
 }
