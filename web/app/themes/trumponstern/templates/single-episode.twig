@@ -2,35 +2,114 @@
 
 {% block content %}
 
-	<div class="section">
+	<div class="section episode">
 
 		<div class="container-fluid">
 
-			<h1>{{ post.date }}</h1>
+			<h1 class="episode__title">
+				{{ post.date }}
+			</h1>
 
-			<audio class="episode-player" id="episode-player" controls style="width: 100%">
-				<source src="{{ post.mp3 }}" type="audio/mpeg">
-			</audio>
+			<div class="episode__player-section">
 
-			<div class="the-content">
+				<audio class="episode-player" id="episode-player" controls style="width: 100%">
+					<source src="{{ post.mp3 }}" type="audio/mpeg">
+				</audio>
+
+			</div>
+
+			<div class="the-content episode__content">
 				{{ post.content }}
 			</div><!-- /.the-content -->
 
+			{% if post.get_duration or post.tags %}
+
+				<div class="episode__meta">
+
+					{% if post.tags %}
+
+						<div class="episode__meta-item">
+
+							<span class="episode__meta-key">
+								Tags: 
+							</span>
+
+							<span class="episode__meta-value">
+								{{ post.tags|join(', ') }}
+							</span>
+
+						</div>
+
+					{% endif %}
+
+					{% if post.get_duration %}
+
+						<div class="episode__meta-item">
+
+							<span class="episode__meta-key">
+								Duration: 
+							</span>
+
+							<span class="episode__meta-value">
+								{{ post.get_duration }}
+							</span>
+
+						</div>
+
+					{% endif %}
+
+				</div><!-- /.episode-tease__meta -->
+
+			{% endif %}
+
 			{% if post.get_bookmarks %}
 
-				<h4>Bookmarks</h4>
+				<div class="section section--tight">
 
-				<div class="episode-bookmarks">
+					<h4 class="keyline-heading">
+						<i class="fa fa-bookmark keyline-heading__icon"></i>&nbsp; Bookmarks
+					</h4>
 
-					{% for bookmark in post.get_bookmarks %}
+					<table class="episode-bookmarks table">
 
-						<a href="#" class="episode-bookmarks__item js-episode-bookmark" data-position="{{ bookmark.seconds }}">
-							{{ bookmark.description }}
-						</a>
+						{% for bookmark in post.get_bookmarks %}
+
+							<tr>
+								<td>
+									{{ bookmark.time }}
+								</td>
+								<td>
+									<a href="#" class="episode-bookmarks__item js-episode-bookmark" data-position="{{ bookmark.seconds }}">
+										{{ bookmark.description }}
+									</a>
+								</td>
+							</tr>
+
+						{% endfor %}
+
+					</table>
+
+				</div>
+
+			{% endif %}
+
+			{% if post.external_links %}
+
+				<h4 class="keyline-heading"><i class="keyline-heading__icon fa fa-globe"></i>&nbsp; Learn More</h4>
+
+				<ul class="episode__links">
+
+					{% for link in post.external_links %}
+
+						<li class="episode__links-item">
+							<a href="{{ link.url }}">
+								{{ link.label }}
+							</a>
+						</li>
 
 					{% endfor %}
 
-				</div>
+				</ul>
 
 			{% endif %}
 

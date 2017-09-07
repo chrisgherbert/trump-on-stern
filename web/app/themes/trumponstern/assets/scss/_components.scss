@@ -6,6 +6,10 @@
 	padding: $spacing 0;
 }
 
+.section--tight {
+	padding: $spacing/2 0;
+}
+
 /**
  * Keyline Headings
  */
@@ -15,6 +19,10 @@
 	border-bottom: 1px solid $divider-color;
 	padding-bottom: $spacing/6;
 	margin-bottom: $spacing/2;
+}
+
+.keyline-heading__icon {
+	color: lighten($gray-light, 20%);
 }
 
 /**
@@ -178,6 +186,17 @@
 }
 
 /**
+ * Main Footer 
+ */
+
+.main-footer {
+	background-color: rgba(black, 0.1);
+	padding: $spacing/2 0;
+	font-size: $font-size-small;
+	font-style: italic;
+}
+
+/**
  * Home Page
  */
 
@@ -186,7 +205,7 @@
 }
 
 /**
- * Episode Tease
+ * Episode Styling
  */
 
 .episode-teases {
@@ -229,7 +248,7 @@
 
 .episode-tease__date-inner {
 	position: relative;
-	top: -5px;
+	// top: -5px;
 }
 
 .episode-tease__date-day, .episode-tease__date-month-year {
@@ -237,8 +256,8 @@
 }
 
 .episode-tease__date-day {
-	font-size: 48px;
-	line-height: 48px;
+	font-size: 35px;
+	line-height: 35px;
 	font-style: italic;
 	font-weight: 900;
 }
@@ -253,7 +272,23 @@
 	font-weight: 700;
 }
 
-.episode-tease__meta {
+/**
+ * General Episode Styling
+ */
+
+.episode__title {
+	margin-bottom: $spacing/2;
+}
+
+.episode__player-section {
+	margin-bottom: 1.5em;
+}
+
+.episode__player {
+	background-color: $brand-primary;
+}
+
+.episode__meta {
 	text-align: left;
 	font-size:  12px;
 	font-family: $font-family-sans-serif;
@@ -262,14 +297,28 @@
 	margin-bottom: 2em;
 }
 
-.episode-tease__meta-item {
+.episode__content {
+	margin-bottom: 1.5em;
+}
+
+.episode__meta-item {
 	margin-bottom: 1em;
 }
 
-.episode-tease__meta-key {
+.episode__meta-key {
 	color: $text-color;
 }
 
-.episode-tease__meta-value {
+.episode__meta-value {
 	color: lighten($gray-light, 10%);
 }
+
+.episode-bookmarks {
+	font-size: $font-size-small;
+}
+
+.episode__links-item {
+	font-size: $font-size-small;
+	margin-bottom: 1em;
+}
+

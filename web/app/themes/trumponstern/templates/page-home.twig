@@ -11,7 +11,7 @@
 				<div class="container-fluid">
 
 					<h4 class="keyline-heading">
-						Introduction
+						Every appearance Donald Trump made on the Howard Stern Show (almost)
 					</h4>
 
 					<div class="the-content ">
@@ -53,11 +53,11 @@
 									<div class="episode-tease__date-inner">
 
 										<div class="episode-tease__date-day">
-											{{ episode.date('d') }}
+											{{ episode.date('M') }}
 										</div><!-- /.episode-tease__date-day -->
 
 										<div class="episode-tease__date-month-year">
-											{{ episode.date('M. Y') }}
+											{{ episode.date('d Y') }}
 										</div><!-- /.episode-tease__date-month-year -->
 
 									</div><!-- /.episode-tease__date-inner -->
@@ -72,17 +72,17 @@
 
 									{% if episode.get_duration or episode.tags %}
 
-										<div class="episode-tease__meta">
+										<div class="episode__meta">
 
 											{% if episode.tags %}
 
-												<div class="episode-tease__meta-item">
+												<div class="episode__meta-item">
 
-													<span class="episode-tease__meta-key">
+													<span class="episode__meta-key">
 														Tags: 
 													</span>
 
-													<span class="episode-tease__meta-value">
+													<span class="episode__meta-value">
 														{{ episode.tags|join(', ') }}
 													</span>
 
@@ -92,13 +92,13 @@
 
 											{% if episode.get_duration %}
 
-												<div class="episode-tease__meta-item">
+												<div class="episode__meta-item">
 
-													<span class="episode-tease__meta-key">
+													<span class="episode__meta-key">
 														Duration: 
 													</span>
 
-													<span class="episode-tease__meta-value">
+													<span class="episode__meta-value">
 														{{ episode.get_duration }}
 													</span>
 
