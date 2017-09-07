@@ -13,6 +13,8 @@ $context = Timber::get_context();
 $post = Timber::get_post($post->ID, Content\Config::post_type_classes());
 $context['post'] = $post;
 
+$context['title'] = 'Donald Trump on The Howard Stern Show ' . '(' . $post->date() . ')';
+
 // Open Graph
 $context['open_graph'] = $post->get_open_graph_data();
 // Twitter Cards
