@@ -18,9 +18,12 @@ class Episode extends \bermanco\ExtendedTimberClasses\Post {
 			return false;
 		}
 
-		$mp3 = new \Zend_Media_Mpeg_Abs($path);
-
-		return gmdate('i:s', $mp3->getLengthEstimate());
+		try {
+			$mp3 = new \Zend_Media_Mpeg_Abs($path);
+			return gmdate('i:s', $mp3->getLengthEstimate());
+		} catch (\Exception $e) {
+			error_log($e->getMessage());
+		}
 
 	}
 
