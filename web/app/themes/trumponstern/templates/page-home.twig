@@ -67,7 +67,11 @@
 								<div class="episode-tease__description the-content">
 
 									<p>
-										{{ episode.get_preview(50, '', '') }}
+										{% if episode.content %}
+											{{ episode.get_preview(50, '', '') }}
+										{% else %}
+											<em>A description is not yet available for this episode.</em>
+										{% endif %}
 									</p>
 
 									{% if episode.get_duration or episode.tags %}

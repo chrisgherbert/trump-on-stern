@@ -19,7 +19,12 @@
 			</div>
 
 			<div class="the-content episode__content">
-				{{ post.content }}
+				{% if post.content %}
+					{{ post.content }}
+				{% else %}
+					<em>A description is not yet available for this episode.</em>
+				{% endif %}
+
 			</div><!-- /.the-content -->
 
 			{% if post.get_duration or post.tags %}
