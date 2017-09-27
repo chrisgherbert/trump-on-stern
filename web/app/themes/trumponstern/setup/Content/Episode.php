@@ -8,7 +8,7 @@ class Episode extends \bermanco\ExtendedTimberClasses\Post {
 
 	public function get_mp3(){
 
-		$attachment_id = $this->meta('mp3');
+		$attachment_id = $this->meta('mp3_id');
 
 		if ($attachment_id){
 			return wp_get_attachment_url($attachment_id);
