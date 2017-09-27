@@ -35,7 +35,9 @@ class Assets {
 
 	public function enqueue_stylesheets(){
 
-		wp_enqueue_style( 'main', get_template_directory_uri() . '/theme_dist/main.css' );
+		$ver_string = filemtime(get_template_directory() . '/theme_dist/main.css');
+
+		wp_enqueue_style( 'main', get_template_directory_uri() . '/theme_dist/main.css', false, $ver_string );
 
 	}
 
