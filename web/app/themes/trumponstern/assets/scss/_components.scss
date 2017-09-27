@@ -323,6 +323,10 @@
 	color: $text-color;
 }
 
+.episode__meta-key-icon {
+	color: rgba($text-color, 0.5);
+}
+
 .episode__meta-value {
 	color: lighten($gray-light, 10%);
 }
