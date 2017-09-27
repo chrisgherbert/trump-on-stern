@@ -192,7 +192,7 @@
 .main-footer {
 	background-image: url('../assets/img/footer-bg.jpg');
 	background-size: cover;
-	padding: $spacing*1.5 0;
+	padding: $spacing*1.5 0 $spacing/2 0;
 	font-style: italic;
 	color: rgba(black, 0.4);
 }
