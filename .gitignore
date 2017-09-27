@@ -24,3 +24,4 @@ deploy-to-*.php
 
 # Etc
 .DS_Store
+/.phpintel
