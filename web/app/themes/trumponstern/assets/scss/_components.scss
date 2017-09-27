@@ -190,10 +190,11 @@
  */
 
 .main-footer {
-	background-color: rgba(black, 0.1);
-	padding: $spacing/2 0;
-	font-size: $font-size-small;
+	background-image: url('../assets/img/footer-bg.jpg');
+	background-size: cover;
+	padding: $spacing*1.5 0;
 	font-style: italic;
+	color: rgba(black, 0.4);
 }
 
 /**
