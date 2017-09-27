@@ -148,11 +148,24 @@
 	background-color: $gray;
 	color: white;
 	text-align: center;
-	padding: $spacing;
+	padding: $spacing 0 ($spacing + 42) 0;
 	background-image: url('../assets/img/header-bg.jpg');
 	background-repeat: no-repeat;
 	background-position: right center;
 	background-size: cover;
+	position: relative;
+	&:after {
+		content: '';
+		display: block;
+		height: 42px;
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		background-image: url('../assets/img/torn-paper-bg.png');
+		background-repeat: repeat-x;
+	}
 }
 
 .main-header__logo {
