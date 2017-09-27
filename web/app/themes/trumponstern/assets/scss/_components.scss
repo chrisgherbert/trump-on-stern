@@ -4,6 +4,9 @@
 
 .section {
 	padding: $spacing 0;
+	@include mq-xsmall-max {
+		padding: $spacing/2 0;
+	}
 }
 
 .section--tight {
@@ -19,6 +22,9 @@
 	border-bottom: 1px solid $divider-color;
 	padding-bottom: $spacing/6;
 	margin-bottom: $spacing/2;
+	@include mq-xsmall-max {
+		text-align: center;
+	}
 }
 
 .keyline-heading__icon {
@@ -166,6 +172,10 @@
 		background-image: url('../assets/img/torn-paper-bg.png');
 		background-repeat: repeat-x;
 	}
+	@include mq-xsmall-max {
+		background-image: none;
+		padding: $spacing/2 0 ($spacing/2 + 42) 0;
+	}
 }
 
 .main-header__logo {
@@ -245,6 +255,9 @@
 		transform: translate(-10px, 0);
 		background-color: lighten($site-yellow-light, 3%);
 	}
+	@include mq-xsmall-max {
+		display: block;
+	}
 }
 
 .episode-tease__date {
@@ -258,6 +271,13 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	@include mq-xsmall-max {
+		margin: 0 0 $spacing/3 0;
+		width: 100%;
+		border-radius: 5px;
+		height: auto;
+		padding: $spacing/4 0;
+	}
 }
 
 .episode-tease__date-inner {
@@ -274,6 +294,10 @@
 	line-height: 35px;
 	font-style: italic;
 	font-weight: 900;
+	@include mq-xsmall-max {
+		font-size: 30px;
+		line-height: 30px;
+	}
 }
 
 .episode-tease__date-month-year {
