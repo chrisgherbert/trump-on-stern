@@ -22,10 +22,13 @@ $context['open_graph'] = array(
 		'key' => 'og:description',
 		'value' => get_option('blogdescription'),
 	),
+	array(
+		'key' => 'og:image',
+		'value' => get_template_directory_uri() . '/assets/img/trump-on-stern-og-image.png'
+	)
 );
 
 // Episodes
 $context['episodes_grouped_by_year'] = Content\Episode::get_grouped_by_year();
-
 
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context, false, TimberLoader::CACHE_NONE );

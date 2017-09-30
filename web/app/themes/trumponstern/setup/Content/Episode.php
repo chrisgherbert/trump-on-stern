@@ -2,7 +2,7 @@
 
 namespace Content;
 
-class Episode extends \bermanco\ExtendedTimberClasses\Post {
+class Episode extends Post {
 
 	public $post_type = 'episode';
 
