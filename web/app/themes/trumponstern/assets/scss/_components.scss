@@ -92,7 +92,6 @@
 .mobile-menu {
 	background-color: $gray-lighter;
 	color: white;
-	box-shadow: 0 2px 6px rgba(black, 0.5);
 	height: 100%;
 	width: 90%;
 	max-width: 275px;
@@ -110,6 +109,7 @@
 .mobile-drawer.js-active .mobile-menu {
 	transform: translateX(100%);
 	transition: all 0.35s ease-out;
+	box-shadow: 0 2px 6px rgba(black, 0.5);
 }
 
 /* animating out state */
