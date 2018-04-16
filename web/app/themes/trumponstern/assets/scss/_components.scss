@@ -220,6 +220,7 @@
  */
 
 .main-footer {
+	font-size: $font-size-small;
 	background-image: url('../assets/img/footer-bg.jpg');
 	background-size: cover;
 	padding: $spacing*1.5 0 $spacing/2 0;
@@ -338,6 +339,7 @@
 	text-align: left;
 	font-size:  12px;
 	font-family: $font-family-sans-serif;
+	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	margin-bottom: 2em;
