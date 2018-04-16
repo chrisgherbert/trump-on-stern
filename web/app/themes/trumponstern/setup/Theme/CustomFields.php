@@ -17,6 +17,7 @@ class CustomFields {
 	 * @var array
 	 */
 	protected $boxes = array(
+		'tags',
 		'episode',
 		'episode_bookmarks',
 		'episode_external_links'
@@ -44,6 +45,26 @@ class CustomFields {
 				add_action('cmb2_admin_init', array($this, $box));
 			}
 		}
+	}
+
+	public function tags(){
+
+		$cmb2 = new_cmb2_box(array(
+			'id' => 'tags',
+			'title' => 'Extended Info',
+			'object_types' => array('term'),
+			'taxonomies' => array('post_tag')
+		));
+
+		$cmb2->add_field(array(
+			'id' => 'thumbnail',
+			'name' => 'Thumbnail',
+			'type' => 'file',
+			'options' => array(
+				'url' => false
+			)
+		));
+
 	}
 
 	public function episode(){
