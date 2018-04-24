@@ -6,7 +6,7 @@
 
 		{% block title_area %}
 
-			<h1>
+			<h1 class="page-title">
 				{{ title }}
 			</h1>
 
@@ -15,17 +15,91 @@
 		{% block posts_area %}
 
 			{% if posts %}
-				<ol>
-					{% for post in posts %}
-						<li>
-							{% include 'components/tease.twig' with {
-								title: post.title,
-								link: post.link,
-								image: post.thumbnail
-							} %}
-						</li>
+
+				<div class="episode-teases">
+
+					{% for episode in posts %}
+
+						<a href="{{ episode.link }}" class="episode-tease">
+
+							<div class="episode-tease__date">
+
+								<div class="episode-tease__date-inner">
+
+									<div class="episode-tease__date-day">
+										{{ episode.date('M') }}
+									</div><!-- /.episode-tease__date-day -->
+
+									<div class="episode-tease__date-month-year">
+										{{ episode.date('d Y') }}
+									</div><!-- /.episode-tease__date-month-year -->
+
+								</div><!-- /.episode-tease__date-inner -->
+
+							</div><!-- /.episode-tease__date -->
+
+							<div class="episode-tease__description the-content">
+
+								<p>
+									{% if episode.content %}
+										{{ episode.get_preview(50, '', '') }}
+									{% else %}
+										<em>A description is not yet available for this interview.</em>
+									{% endif %}
+								</p>
+
+								{% if episode.get_duration or episode.tags %}
+
+									<div class="episode__meta">
+
+										{% if episode.tags %}
+
+											<div class="episode__meta-item">
+
+												<span class="episode__meta-key">
+													Tags: 
+												</span>
+
+												<span class="episode__meta-value">
+													{{ episode.tags|join(', ') }}
+												</span>
+
+											</div>
+
+										{% endif %}
+
+										{% if episode.get_duration %}
+
+											<div class="episode__meta-item">
+
+												<span class="episode__meta-key">
+													Duration: 
+												</span>
+
+												<span class="episode__meta-value">
+													{{ episode.get_duration }}
+												</span>
+
+											</div>
+
+										{% endif %}
+
+									</div><!-- /.episode-tease__meta -->
+
+								{% endif %}
+
+								<div class="more-link">
+									+ See Details
+								</div>
+
+							</div><!-- /.episode-tease__description -->
+
+						</a><!-- /.episode-tease -->
+
 					{% endfor %}
-				</ol>
+
+				</div><!-- /.episode-teases -->
+
 			{% endif %}
 
 		{% endblock %}

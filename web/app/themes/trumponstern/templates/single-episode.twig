@@ -40,7 +40,15 @@
 							</span>
 
 							<span class="episode__meta-value">
-								{{ post.tags|join(', ') }}
+
+								{% for tag in post.tags %}
+
+									<a class="episode__meta-link" href="{{ tag.link }}">
+										{{ tag }} 
+									</a>
+
+								{% endfor %}
+
 							</span>
 
 						</div>
@@ -100,21 +108,25 @@
 
 			{% if post.external_links %}
 
-				<h4 class="keyline-heading"><i class="keyline-heading__icon fa fa-globe"></i>&nbsp; Learn More</h4>
+				<div class="section section--tight">
 
-				<ul class="episode__links">
+					<h4 class="keyline-heading"><i class="keyline-heading__icon fa fa-globe"></i>&nbsp; Learn More</h4>
 
-					{% for link in post.external_links %}
+					<ul class="episode__links">
 
-						<li class="episode__links-item">
-							<a href="{{ link.url }}">
-								{{ link.label }}
-							</a>
-						</li>
+						{% for link in post.external_links %}
 
-					{% endfor %}
+							<li class="episode__links-item">
+								<a href="{{ link.url }}">
+									{{ link.label }}
+								</a>
+							</li>
 
-				</ul>
+						{% endfor %}
+
+					</ul>
+
+				</div>
 
 			{% endif %}
 

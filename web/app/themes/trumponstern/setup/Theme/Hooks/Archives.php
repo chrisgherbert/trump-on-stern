@@ -19,7 +19,7 @@ class Archives {
 	public function add_cpt_to_archives($query){
 
 		if ( $query->is_main_query() && $query->is_archive() && !$query->is_post_type_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
-			$query->set( 'post_type', array('article') );
+			$query->set( 'post_type', array('episode', 'post') );
 		}
 
 	}
