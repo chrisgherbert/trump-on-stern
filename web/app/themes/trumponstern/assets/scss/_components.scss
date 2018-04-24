@@ -229,11 +229,23 @@
 }
 
 /**
+ * Pages
+ */
+
+.page-title {
+	margin: $spacing 0;
+}
+
+/**
  * Home Page
  */
 
 .home-intro {
 	background-color: $site-blue-2;
+}
+
+.home-episodes {
+	margin-bottom: $spacing;
 }
 
 /**
@@ -260,8 +272,8 @@
 	&:hover, &:focus, &:active {
 		color: inherit;
 		text-decoration: inherit;
-		transform: translate(-10px, 0);
-		background-color: lighten($site-yellow-light, 3%);
+		transform: translate(0, -5px);
+		box-shadow: 0 10px 30px rgba(black, 0.1);
 	}
 	@include mq-xsmall-max {
 		display: block;
@@ -363,6 +375,11 @@
 
 .episode__meta-value {
 	color: lighten($gray-light, 10%);
+}
+
+.episode__meta-link {
+	display: inline-block;
+	margin-right: 0.7em;
 }
 
 .episode-bookmarks {
