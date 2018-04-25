@@ -2,114 +2,118 @@
 
 {% block content %}
 
-	<div class="container-fluid">
+	<div class="section">
 
-		{% block title_area %}
+		<div class="container-fluid">
 
-			<h1 class="page-title">
-				{{ title }}
-			</h1>
+			{% block title_area %}
 
-		{% endblock %}
+				<h1 class="page-title">
+					{{ title }}
+				</h1>
 
-		{% block posts_area %}
+			{% endblock %}
 
-			{% if posts %}
+			{% block posts_area %}
 
-				<div class="episode-teases">
+				{% if posts %}
 
-					{% for episode in posts %}
+					<div class="episode-teases">
 
-						<a href="{{ episode.link }}" class="episode-tease">
+						{% for episode in posts %}
 
-							<div class="episode-tease__date">
+							<a href="{{ episode.link }}" class="episode-tease">
 
-								<div class="episode-tease__date-inner">
+								<div class="episode-tease__date">
 
-									<div class="episode-tease__date-day">
-										{{ episode.date('M') }}
-									</div><!-- /.episode-tease__date-day -->
+									<div class="episode-tease__date-inner">
 
-									<div class="episode-tease__date-month-year">
-										{{ episode.date('d Y') }}
-									</div><!-- /.episode-tease__date-month-year -->
+										<div class="episode-tease__date-day">
+											{{ episode.date('M') }}
+										</div><!-- /.episode-tease__date-day -->
 
-								</div><!-- /.episode-tease__date-inner -->
+										<div class="episode-tease__date-month-year">
+											{{ episode.date('d Y') }}
+										</div><!-- /.episode-tease__date-month-year -->
 
-							</div><!-- /.episode-tease__date -->
+									</div><!-- /.episode-tease__date-inner -->
 
-							<div class="episode-tease__description the-content">
+								</div><!-- /.episode-tease__date -->
 
-								<p>
-									{% if episode.content %}
-										{{ episode.get_preview(50, '', '') }}
-									{% else %}
-										<em>A description is not yet available for this interview.</em>
+								<div class="episode-tease__description the-content">
+
+									<p>
+										{% if episode.content %}
+											{{ episode.get_preview(50, '', '') }}
+										{% else %}
+											<em>A description is not yet available for this interview.</em>
+										{% endif %}
+									</p>
+
+									{% if episode.get_duration or episode.tags %}
+
+										<div class="episode__meta">
+
+											{% if episode.tags %}
+
+												<div class="episode__meta-item">
+
+													<span class="episode__meta-key">
+														Tags: 
+													</span>
+
+													<span class="episode__meta-value">
+														{{ episode.tags|join(', ') }}
+													</span>
+
+												</div>
+
+											{% endif %}
+
+											{% if episode.get_duration %}
+
+												<div class="episode__meta-item">
+
+													<span class="episode__meta-key">
+														Duration: 
+													</span>
+
+													<span class="episode__meta-value">
+														{{ episode.get_duration }}
+													</span>
+
+												</div>
+
+											{% endif %}
+
+										</div><!-- /.episode-tease__meta -->
+
 									{% endif %}
-								</p>
 
-								{% if episode.get_duration or episode.tags %}
+									<div class="more-link">
+										+ See Details
+									</div>
 
-									<div class="episode__meta">
+								</div><!-- /.episode-tease__description -->
 
-										{% if episode.tags %}
+							</a><!-- /.episode-tease -->
 
-											<div class="episode__meta-item">
+						{% endfor %}
 
-												<span class="episode__meta-key">
-													Tags: 
-												</span>
+					</div><!-- /.episode-teases -->
 
-												<span class="episode__meta-value">
-													{{ episode.tags|join(', ') }}
-												</span>
+				{% endif %}
 
-											</div>
+			{% endblock %}
 
-										{% endif %}
+			{% block pagination %}
 
-										{% if episode.get_duration %}
+				{% include 'components/pagination.twig' %}
 
-											<div class="episode__meta-item">
+			{% endblock %}
 
-												<span class="episode__meta-key">
-													Duration: 
-												</span>
+		</div><!-- /.container-fluid -->
 
-												<span class="episode__meta-value">
-													{{ episode.get_duration }}
-												</span>
-
-											</div>
-
-										{% endif %}
-
-									</div><!-- /.episode-tease__meta -->
-
-								{% endif %}
-
-								<div class="more-link">
-									+ See Details
-								</div>
-
-							</div><!-- /.episode-tease__description -->
-
-						</a><!-- /.episode-tease -->
-
-					{% endfor %}
-
-				</div><!-- /.episode-teases -->
-
-			{% endif %}
-
-		{% endblock %}
-
-		{% block pagination %}
-
-			{% include 'components/pagination.twig' %}
-
-		{% endblock %}
-
-	</div><!-- /.container-fluid -->
+	</div>
 
 {% endblock %}

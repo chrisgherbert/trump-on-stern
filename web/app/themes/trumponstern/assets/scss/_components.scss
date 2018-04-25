@@ -234,6 +234,9 @@
 
 .page-title {
 	margin: $spacing 0;
+	&:first-child {
+		margin-top: 0;
+	}
 }
 
 /**
