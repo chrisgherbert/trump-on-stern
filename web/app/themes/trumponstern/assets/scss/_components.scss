@@ -366,10 +366,13 @@
 
 .episode__meta-item {
 	margin-bottom: 1em;
+	display: flex;
 }
 
 .episode__meta-key {
 	color: $text-color;
+	flex-shrink: 0;
+	padding-right: $spacing/6;
 }
 
 .episode__meta-key-icon {
