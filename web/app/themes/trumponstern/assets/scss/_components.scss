@@ -397,3 +397,12 @@
 	margin-bottom: 1em;
 }
 
+.episode__player-section {
+	position: sticky;
+	top: $spacing/3;
+}
+
+.episode-player {
+	box-shadow: 0 2px 5px rgba(black, 0.1);
+}
+
