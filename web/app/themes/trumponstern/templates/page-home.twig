@@ -134,4 +134,34 @@
 
 	{% endblock %}
 
+	{% block home_tags %}
+
+		<div class="section section--tag">
+
+			<div class="container-fluid">
+
+				<h4 class="keyline-heading">
+					Tags
+				</h4>
+
+				<div class="tag-list">
+
+					{% for tag in tags %}
+
+						<a href="{{ tag.link }}" class="single-tag">
+
+							{{ tag.name }}
+
+						</a>
+
+					{% endfor %}
+
+				</div>
+
+			</div>
+
+		</div>
+
+	{% endblock %}
+
 {% endblock %}

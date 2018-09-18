@@ -31,4 +31,7 @@ $context['open_graph'] = array(
 // Episodes
 $context['episodes_grouped_by_year'] = Content\Episode::get_grouped_by_year();
 
+// Tags
+$context['tags'] = Timber::get_terms('post_tag');
+
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context, false, TimberLoader::CACHE_NONE );
